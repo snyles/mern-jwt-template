@@ -1,53 +1,51 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import authService from "../../services/authService";
+import useForm from "../../lib/useForm";
+import styles from './SignupForm.module.css'
 
-class SignupForm extends Component {
-  state = {
+export default function SignupForm( {handleSignupOrLogin} ) {
+  const {inputs, handleChange } = useForm({
     name: "",
     email: "",
     password: "",
     passwordConf: "",
-  };
+  })
+  const { name, email, password, passwordConf } = inputs;
 
-  handleChange = (e) => {
-    this.props.updateMessage("");
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [message, setMessage] = useState('')
+  const history = useHistory();
 
-  isFormInvalid() {
-    const { name, email, password, passwordConf } = this.state;
+  const isFormInvalid = () => {
     return !(name && email && password === passwordConf);
   }
 
-  handleSubmit = async (e) => {
-    const { history, updateMessage, handleSignupOrLogin } = this.props;
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await authService.signup(this.state);
+      await authService.signup(inputs);
       // Let <App> know a user has signed up!
       handleSignupOrLogin();
       history.push("/");
     } catch (err) {
-      updateMessage(err.message);
+      setMessage(err.message);
     }
   };
 
-  render() {
-    const { name, email, password, passwordConf } = this.state;
-    return (
-      <div>
-        <h3>Sign Up</h3>
-        <form autoComplete="off" onSubmit={this.handleSubmit}>
+  return (
+    <div>
+      <h3>Sign Up</h3>
+      <form autoComplete="off" onSubmit={handleSubmit} className={styles.signupForm}>
+        <fieldset>
+          {message && <p>{message}</p>}
+
           <input
             type="text"
             autoComplete="off"
             id="name"
             value={name}
             name="name"
-            onChange={this.handleChange}
+            onChange={handleChange}
           />
           <label htmlFor="name">Name</label>
           <input
@@ -56,7 +54,7 @@ class SignupForm extends Component {
             id="email"
             value={email}
             name="email"
-            onChange={this.handleChange}
+            onChange={handleChange}
           />
           <label htmlFor="email">Email</label>
           <input
@@ -65,7 +63,7 @@ class SignupForm extends Component {
             id="password"
             value={password}
             name="password"
-            onChange={this.handleChange}
+            onChange={handleChange}
           />
           <label htmlFor="password">Password</label>
           <input
@@ -74,16 +72,14 @@ class SignupForm extends Component {
             id="confirm"
             value={passwordConf}
             name="passwordConf"
-            onChange={this.handleChange}
+            onChange={handleChange}
           />
           <label htmlFor="confirm">Confirm Password</label>
-          <button disabled={this.isFormInvalid()}>Sign Up</button>
+          <button disabled={isFormInvalid()}>Sign Up</button>
           &nbsp;&nbsp;
           <Link to="/">Cancel</Link>
-        </form>
-      </div>
-    );
-  }
+        </fieldset>
+      </form>
+    </div>
+  );
 }
-
-export default SignupForm;

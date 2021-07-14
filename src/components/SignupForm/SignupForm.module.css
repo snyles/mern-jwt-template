@@ -1,0 +1,14 @@
+.signupForm {
+  display: flex;
+  flex-direction: column;
+}
+.signupForm label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.signupForm fieldset {
+  width: max-content;
+  margin: 0 auto;
+  border: none;
+}
