@@ -31,7 +31,7 @@ class LoginPage extends Component {
   render() {
     const {email, pw} = this.state
     return (
-      <main className="Login">
+      <main className="loginForm">
         <h3>Log In</h3>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
           <input

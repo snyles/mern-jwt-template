@@ -1,7 +1,14 @@
-.LoginPage {
+.loginForm {
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
+  flex-direction: column;
+}
+.loginForm label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.loginForm fieldset {
+  width: max-content;
+  margin: 0 auto;
+  border: none;
 }
