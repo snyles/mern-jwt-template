@@ -17,7 +17,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
   const history = useHistory();
 
   const isFormInvalid = () => {
-    return !(name && email && password === passwordConf);
+    return !(name && email && password && password === passwordConf);
   }
 
   const handleSubmit = async (e) => {

@@ -5,6 +5,7 @@ export default function useForm(initial = {}) {
   const [inputs, setInputs] = useState(initial);
 
   // create buffer variable to avoid infinite state update loop with useEffect
+  // might only be needed for next.js?
   const initialValues = Object.values(initial).join('');
 
   useEffect(() => {
