@@ -12,6 +12,7 @@ export default function LoginPage({handleSignupOrLogin}) {
   const {email, pw} = inputs;
 
   const history = useHistory();
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
