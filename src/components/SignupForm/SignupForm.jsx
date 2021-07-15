@@ -5,7 +5,7 @@ import useForm from "../../lib/useForm";
 import styles from './SignupForm.module.css'
 
 export default function SignupForm( {handleSignupOrLogin} ) {
-  const {inputs, handleChange } = useForm({
+  const {inputs, handleChange, resetForm } = useForm({
     name: "",
     email: "",
     password: "",
@@ -76,6 +76,8 @@ export default function SignupForm( {handleSignupOrLogin} ) {
           />
           <label htmlFor="confirm">Confirm Password</label>
           <button disabled={isFormInvalid()}>Sign Up</button>
+          &nbsp;&nbsp;
+          <button type="button" onClick={resetForm}>Reset</button>
           &nbsp;&nbsp;
           <Link to="/">Cancel</Link>
         </fieldset>

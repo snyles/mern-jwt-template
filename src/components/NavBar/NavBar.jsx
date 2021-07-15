@@ -1,14 +1,14 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
-const NavBar = ({ user, handleLogout }) => {
+export default function NavBar ({ user, handleLogout }) {
   return (
     <nav>
       <ul>
       {user ?
         <>
           <li>Welcome, {user.name}</li>
-          <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
+          <li><NavLink to="" onClick={handleLogout}>Log Out</NavLink></li>
           <li><NavLink to="/users">Users</NavLink></li>
         </>
       :
@@ -22,4 +22,3 @@ const NavBar = ({ user, handleLogout }) => {
   )
 }
 
-export default NavBar;
