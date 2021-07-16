@@ -10,6 +10,7 @@ export default function useForm(initial = {}) {
 
   useEffect(() => {
     setInputs(initial);
+    // eslint-disable-next-line
   }, [initialValues]);
 
   function handleChange(e) {

@@ -4,6 +4,8 @@ This is a template for a full-stack MERN application with built in user authenti
 
 # Getting Started
 
-Run ```nodemon``` to start the react front-end
+```npm i``` to install packages
+
+Run ```nodemon or npm start``` to start the react front-end
 
 Run ```nodemon server``` to start the express back-end

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styles from "./Login.module.css";
 import authService from '../../services/authService'
 import useForm from "../../lib/useForm";
@@ -26,7 +26,7 @@ export default function LoginPage({handleSignupOrLogin}) {
   };
 
   return (
-    <main >
+    <main>
       <h3>Log In</h3>
       <form className={styles.loginForm}autoComplete="off" onSubmit={handleSubmit}>
         <fieldset>

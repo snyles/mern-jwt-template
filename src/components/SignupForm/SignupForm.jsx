@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import authService from "../../services/authService";
 import useForm from "../../lib/useForm";
 import styles from './SignupForm.module.css'
