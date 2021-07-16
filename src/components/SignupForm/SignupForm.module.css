@@ -4,11 +4,19 @@
 }
 .signupForm label {
   display: block;
-  margin-bottom: 1rem;
 }
 
 .signupForm fieldset {
-  width: max-content;
   margin: 0 auto;
   border: none;
+}
+
+.signupForm button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.signupForm input {
+  padding: 0.5rem;
+  margin: 0.2rem 0 1rem 0;
 }

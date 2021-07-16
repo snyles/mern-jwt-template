@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+// for production use at least 12 salt rounds
 const SALT_ROUNDS = 6;
 
 const userSchema = new mongoose.Schema({

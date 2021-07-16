@@ -4,11 +4,19 @@
 }
 .loginForm label {
   display: block;
-  margin-bottom: 1rem;
 }
 
 .loginForm fieldset {
-  width: max-content;
   margin: 0 auto;
   border: none;
+}
+
+.loginForm button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.loginForm input {
+  padding: 0.5rem;
+  margin: 0.2rem 0 1rem 0;
 }

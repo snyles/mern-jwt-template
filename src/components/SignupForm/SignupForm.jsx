@@ -33,12 +33,13 @@ export default function SignupForm( {handleSignupOrLogin} ) {
   };
 
   return (
-    <div>
+    <>
       <h3>Sign Up</h3>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.signupForm}>
         <fieldset>
           {message && <p>{message}</p>}
 
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             autoComplete="off"
@@ -47,7 +48,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
             name="name"
             onChange={handleChange}
           />
-          <label htmlFor="name">Name</label>
+          <label htmlFor="email">Email</label>
           <input
             type="text"
             autoComplete="off"
@@ -56,7 +57,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
             name="email"
             onChange={handleChange}
           />
-          <label htmlFor="email">Email</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             autoComplete="off"
@@ -65,7 +66,7 @@ export default function SignupForm( {handleSignupOrLogin} ) {
             name="password"
             onChange={handleChange}
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="confirm">Confirm Password</label>
           <input
             type="password"
             autoComplete="off"
@@ -74,14 +75,13 @@ export default function SignupForm( {handleSignupOrLogin} ) {
             name="passwordConf"
             onChange={handleChange}
           />
-          <label htmlFor="confirm">Confirm Password</label>
-          <button disabled={isFormInvalid()}>Sign Up</button>
-          &nbsp;&nbsp;
-          <button type="button" onClick={resetForm}>Reset</button>
-          &nbsp;&nbsp;
-          <Link to="/">Cancel</Link>
+          <div>
+            <button type="submit" disabled={isFormInvalid()}>Sign Up</button>
+            <button type="button" onClick={resetForm}>Reset</button>
+            <button type="button" onClick={()=>history.push('/')}>Cancel</button>
+          </div>
         </fieldset>
       </form>
-    </div>
+    </>
   );
 }

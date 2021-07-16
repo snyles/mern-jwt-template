@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import "./Login.css";
+import styles from "./Login.module.css";
 import authService from '../../services/authService'
 import useForm from "../../lib/useForm";
 
@@ -26,31 +26,33 @@ export default function LoginPage({handleSignupOrLogin}) {
   };
 
   return (
-    <main className="loginForm">
+    <main >
       <h3>Log In</h3>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          autoComplete="off"
-          id="email"
-          value={email}
-          name="email"
-          onChange={handleChange}
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          type="password"
-          autoComplete="off"
-          id="password"
-          value={pw}
-          name="pw"
-          onChange={handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <button className="btn green">Log In</button>&nbsp;&nbsp;&nbsp;
-        <Link className="btn red" to="/">
-          Cancel
-        </Link>
+      <form className={styles.loginForm}autoComplete="off" onSubmit={handleSubmit}>
+        <fieldset>
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            autoComplete="off"
+            id="email"
+            value={email}
+            name="email"
+            onChange={handleChange}
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            autoComplete="off"
+            id="password"
+            value={pw}
+            name="pw"
+            onChange={handleChange}
+          />
+          <div>
+            <button type="submit">Log In</button>
+            <button type="button" onClick={()=>history.push('/')}>Cancel</button>
+          </div>
+        </fieldset>
       </form>
     </main>
   );
